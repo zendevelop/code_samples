@@ -1,0 +1,8 @@
+Exception: STATUS_ACCESS_VIOLATION at eip=610A0C83
+eax=00000000 ebx=00000000 ecx=00000002 edx=0028CC74 esi=00000000 edi=00000001
+ebp=0028CBCC esp=0028CBA0 program=F:\zenStudio\code_samples\linux_samples\socket\UNP\sam.exe, pid 6696, thread main
+cs=0023 ds=002B es=002B fs=0053 gs=002B ss=002B
+Stack trace:
+Frame     Function  Args
+0028CBCC  610A0C83 (00403000, 00400000, 00000000, 0028CC70)
+End of stack trace
