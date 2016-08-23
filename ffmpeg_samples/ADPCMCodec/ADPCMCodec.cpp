@@ -105,7 +105,7 @@ int ADPCMCodec::encoderInit() {
 	pEncFrame->format = pEncCodecCtx->sample_fmt;
 	encBufSize = av_samples_get_buffer_size(NULL, pEncCodecCtx->channels, pEncCodecCtx->frame_size, pEncCodecCtx->sample_fmt, 1);
 	frame_buf = (unsigned char*)av_malloc(encBufSize);
-	avcodec_fill_audio_frame(pEncFrame, pEncCodecCtx->channels, pEncCodecCtx->sample_fmt, (const unsigned char*)frame_buf, encBufSize, 1);
+	//avcodec_fill_audio_frame(pEncFrame, pEncCodecCtx->channels, pEncCodecCtx->sample_fmt, (const unsigned char*)frame_buf, encBufSize, 1);
 
 	return 0;
 }
@@ -133,7 +133,7 @@ int ADPCMCodec::encode( unsigned char* dstBuf, unsigned int dstBufSize, unsigned
 	avPkt.data = NULL;
 	avPkt.size = 0;
 
-	//avcodec_fill_audio_frame(pEncFrame, pEncCodecCtx->channels, pEncCodecCtx->sample_fmt, (const unsigned char*)srcBuf, srcSize, 1);
+	avcodec_fill_audio_frame(pEncFrame, pEncCodecCtx->channels, pEncCodecCtx->sample_fmt, (const unsigned char*)srcBuf, srcSize, 1);
 	int ret = avcodec_encode_audio2(pEncCodecCtx, &avPkt, pEncFrame, &gotOutput);
 	if (ret < 0)
 		return -1;
